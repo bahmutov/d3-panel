@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "color-pusher",
-  "version": "0.0.5",
+  "name": "d3-panel",
+  "version": "0.0.1",
   "author": "Gleb Bahmutov gleb.bahmutov@gmail.com",
-  "description": "Easy color theme tweaking for any website as Chrome DevTools panel",
+  "description": "Plot data right in Chrome DevTools panel",
   "permissions": [],
   "optional_permissions": [],
   "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
@@ -26,8 +26,7 @@
         "<all_urls>"
       ],
       "js": [
-        "panel/libs/jquery.js",
-        "content-script/color-pusher-injected-into-page.js"
+        "content-script/d3-panel-injected-into-page.js"
       ]
     }
   ]
