@@ -1,0 +1,54 @@
+{
+  "name": "d3-panel",
+  "description": "Plot data right in Chrome DevTools panel",
+  "version": "0.0.1",
+  "author": "Gleb Bahmutov gleb.bahmutov@gmail.com",
+  "bugs": {
+    "url": "https://github.com/bahmutov/d3-panel/issues"
+  },
+  "devDependencies": {
+    "aged": "0.0.1",
+    "grunt": "0.4.5",
+    "grunt-banner": "0.2.3",
+    "grunt-complexity": "0.2.0",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-contrib-concat": "0.5.0",
+    "grunt-contrib-copy": "0.7.0",
+    "grunt-contrib-cssmin": "0.10.0",
+    "grunt-contrib-jshint": "0.10.0",
+    "grunt-contrib-uglify": "0.6.0",
+    "grunt-html2js": "0.2.9",
+    "grunt-jsonlint": "1.0.4",
+    "grunt-nice-package": "0.9.2",
+    "grunt-npm2bower-sync": "0.4.0",
+    "jshint-stylish": "1.0.0",
+    "matchdep": "0.3.0",
+    "pre-git": "0.1.1",
+    "time-grunt": "1.0.0"
+  },
+  "engines": {
+    "node": "0.10.*"
+  },
+  "homepage": "https://github.com/bahmutov/d3-panel",
+  "keywords": [
+    "chrome",
+    "devtools",
+    "extension",
+    "panel",
+    "d3",
+    "plot",
+    "chart",
+    "developer"
+  ],
+  "license": "MIT",
+  "main": "Gruntfile.js",
+  "pre-commit": "grunt",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bahmutov/d3-panel.git"
+  },
+  "scripts": {
+    "test": "grunt"
+  }
+}
