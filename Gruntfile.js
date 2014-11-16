@@ -224,5 +224,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', ['clean', 'html2js', 'concat', 'copy', 'uglify', 'cssmin', 'usebanner']);
   grunt.registerTask('default', ['sync', 'jsonlint', 'nice-package', 'jshint',
-    'complexity', 'build']);
+    'complexity']);
 };

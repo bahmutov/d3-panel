@@ -1,3 +1,3 @@
-(function d3Panel(d3, window) {
+(function d3Panel() {
   console.log('d3Panel');
 }(window.d3, window));
