@@ -7,6 +7,9 @@ function d3Panel(panel) {
 
   port.onMessage.addListener(function (message) {
     console.log('devtools got message from background page', message);
+    if (_window && typeof message === 'string') {
+      _window.document.querySelector('#d3Panel').innerHTML = message;
+    }
   });
 
   panel.onShown.addListener(function once(panelWindow) {

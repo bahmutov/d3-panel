@@ -1,7 +1,9 @@
-var d3PanelContentPort;
+// page port communicates to the script injected into the page
+// panel port communicates with the devtools d3-panel
+var pagePort, panelPort;
 
 chrome.extension.onConnect.addListener(function (port) {
-  console.log('connection', port);
+  console.log('background.js connection on port', port.name);
 
   if (port.name != 'd3-panel' &&
     port.name != 'd3-panel-content') {
@@ -9,13 +11,23 @@ chrome.extension.onConnect.addListener(function (port) {
   }
 
   if (port.name === 'd3-panel-content') {
-    d3PanelContentPort = port;
-  } else {
-    port.onMessage.addListener(function (message) {
-      console.log('got message from panel', message);
-      if (d3PanelContentPort) {
-        d3PanelContentPort.postMessage(message);
+    pagePort = port;
+    pagePort.onMessage.addListener(function (message) {
+      console.log('message from page to d3-panel background', message);
+      if (panelPort) {
+        panelPort.postMessage(message);
       }
     });
   }
+
+  if (port.name === 'd3-panel') {
+    panelPort = port;
+    panelPort.onMessage.addListener(function (message) {
+      console.log('got message from d4-panel to background', message);
+      if (pagePort) {
+        pagePort.postMessage(message);
+      }
+    });
+  }
+
 });
