@@ -64,5 +64,5 @@ OTHER DEALINGS IN THE SOFTWARE.
 [d3-panel-devdependencies-url]: https://david-dm.org/bahmutov/d3-panel#info=devDependencies
 [d3]: http://d3js.org/
 [d3 panel screenshot]: d3-panel.png
-[d3-panel code snippet]: d3-panel-api-code-snippet.js
+[d3-panel code snippet]: src/d3-panel-api-code-snippet.js
 [code snippets]: http://bahmutov.calepin.co/chrome-devtools-code-snippets.html
