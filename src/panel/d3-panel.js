@@ -1,3 +1,5 @@
-(function d3Panel() {
-  console.log('d3Panel');
+(function d3Panel(d3) {
+  console.log('d3-panel.js');
+  console.log('typeof d3', typeof d3);
+  window.document.querySelector('#d3Panel').innerHTML = 'd3-panel.js';
 }(window.d3, window));
