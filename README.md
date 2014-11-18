@@ -6,6 +6,16 @@
 [![dependencies][d3-panel-dependencies-image] ][d3-panel-dependencies-url]
 [![devdependencies][d3-panel-devdependencies-image] ][d3-panel-devdependencies-url]
 
+This is a Chrome extension that creates new DevTools panel "d3-panel" with [d3][d3]
+library (and a few utility wrappers for convenience). You can then send data to be plotted
+and explored from the browser console. For example, if you are debugging a page and have a sequence
+of numbers in a variable, you can plot a bar chart.
+
+![d3-panel][d3 panel screenshot]
+
+You can send data to the d3-panel using `window.postMessage(data, '*');` command or by running
+a code snippet [d3-panel-api][d3-panel code snippet]. Read how to use code snippets [here][code snippets].
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2014
@@ -52,3 +62,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 [d3-panel-dependencies-url]: https://david-dm.org/bahmutov/d3-panel
 [d3-panel-devdependencies-image]: https://david-dm.org/bahmutov/d3-panel/dev-status.png
 [d3-panel-devdependencies-url]: https://david-dm.org/bahmutov/d3-panel#info=devDependencies
+[d3]: http://d3js.org/
+[d3 panel screenshot]: d3-panel.png
+[d3-panel code snippet]: d3-panel-api-code-snippet.js
+[code snippets]: http://bahmutov.calepin.co/chrome-devtools-code-snippets.html

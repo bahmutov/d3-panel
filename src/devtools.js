@@ -1,15 +1,17 @@
 function d3Panel(panel) {
-  var _window, document, d3, d3panel;
+  var d3, d3panel;
 
+  // append text to the panel
   function appendText(txt) {
     if (!d3panel) {
       return;
     }
-
     var p = d3panel.append('p');
     p.html(txt);
   }
 
+  // bar chart code taken from
+  // http://bost.ocks.org/mike/bar/
   function appendBarChart(numbers) {
     d3panel.append('div').attr('class', 'chart')
       .selectAll('div')
@@ -28,6 +30,7 @@ function d3Panel(panel) {
       n.every(isNumber);
   }
 
+  // remove everything from the d3 panel
   function clear() {
     d3panel.html('');
   }
@@ -52,19 +55,11 @@ function d3Panel(panel) {
   // TODO: buffer messages received before the window is shown
   panel.onShown.addListener(function once(panelWindow) {
     panel.onShown.removeListener(once);
-    _window = panelWindow;
-    document = panelWindow.document;
     d3 = panelWindow.d3;
-    d3panel = d3.select(document.body).select('#d3Panel');
+    d3panel = d3
+      .select(panelWindow.document.body)
+      .select('#d3Panel');
     // TODO: assert window and document
-
-    _window.respond = function (name, data) {
-      console.log('got message from panel', name, data);
-      /*
-      if (name === 'apply-colors') {
-        port.postMessage(data);
-      }*/
-    };
   });
 }
 chrome.devtools.panels.create('d3-panel', 'icons/panel-icon.png',
