@@ -11,18 +11,22 @@
 */
 (function initD3PanelAPI(root) {
 
+  function sendToPanel(msg) {
+    root.postMessage(msg, '*');
+  }
+
   var api = {
     clear: function () {
-      root.postMessage('clear', '*');
+      sendToPanel('clear');
     },
     text: function (msg) {
-      root.postMessage(String(msg), '*');
+      sendToPanel(String(msg));
     },
     bar: function () {
-      if (arguments.length === 1 && Array.isArray(arguments[0])) {
-        root.postMessage(arguments[0], '*');
+      if (arguments.length === 1) {
+        sendToPanel(arguments[0]);
       } else {
-        root.postMessage(Array.prototype.slice.call(arguments, 0), '*');
+        sendToPanel(Array.prototype.slice.call(arguments, 0), '*');
       }
     }
   }
