@@ -10,6 +10,12 @@ function d3Panel(panel) {
     p.html(txt);
   }
 
+  function values(obj) {
+    return Object.keys(obj).map(function (key) {
+      return obj[key];
+    });
+  }
+
   // bar chart code taken from
   // http://bost.ocks.org/mike/bar/
   function appendBarChart(numbers) {
@@ -21,6 +27,17 @@ function d3Panel(panel) {
         .text(function(d) { return d; });
   }
 
+  function appendObjectBarChart(obj) {
+    var keys = Object.keys(obj);
+    var numbers = values(obj);
+    d3panel.append('div').attr('class', 'chart')
+      .selectAll('div')
+        .data(numbers)
+      .enter().append('div')
+        .style('width', function(d) { return d * 10 + 'px'; })
+        .text(function(d, k) { return keys[k] + ': ' + d; });
+  }
+
   function isNumber(x) {
     return typeof x === 'number';
   }
@@ -28,6 +45,10 @@ function d3Panel(panel) {
   function isArrayOfNumbers(n) {
     return Array.isArray(n) &&
       n.every(isNumber);
+  }
+
+  function isObjectOfNumbers(o) {
+    return isArrayOfNumbers(values(o));
   }
 
   // remove everything from the d3 panel
@@ -49,6 +70,8 @@ function d3Panel(panel) {
       }
     } else if (isArrayOfNumbers(message)) {
       appendBarChart(message);
+    } else if (isObjectOfNumbers(message)) {
+      appendObjectBarChart(message);
     }
   });
 

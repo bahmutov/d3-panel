@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "d3-panel",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Gleb Bahmutov gleb.bahmutov@gmail.com",
   "description": "Plot data right in Chrome DevTools panel",
   "permissions": [],
