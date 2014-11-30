@@ -16,6 +16,26 @@ of numbers in a variable, you can plot a bar chart.
 You can send data to the d3-panel using `window.postMessage(data, '*');` command or by running
 a code snippet [d3-panel-api][d3-panel code snippet]. Read how to use code snippets [here][code snippets].
 
+## Install
+
+*Developers*
+
+* Grab this repo using `git clone git@github.com:bahmutov/d3-panel.git`
+* Open Chrome extensions page `chrome://extensions`
+* Load unpacked extension using Developer mode from `src` folder. You should 
+see something similar to the image below
+
+![install](images/install-extension.png)
+
+When you open Chrome DevTools you should see new `d3-panel` tab. You can now plot numbers but
+simply typing from the browser console `window.postMessage([10, 20, 30], '*');` or
+`window.postMessage('hello World!', '*');`.
+
+*optional:* Save a code snippet [d3-panel-api][d3-panel code snippet], then anytime you reload
+a page, you can run the snippet and use `d3panel.bar, d3panel.text, ...` calls.
+
+*Users* - coming soon.
+
 ## Plot types and commands
 
 ### Plot bar chart of numbers

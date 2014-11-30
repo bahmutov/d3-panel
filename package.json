@@ -1,7 +1,7 @@
 {
   "name": "d3-panel",
   "description": "Plot data right in Chrome DevTools panel",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "author": "Gleb Bahmutov gleb.bahmutov@gmail.com",
   "bugs": {
     "url": "https://github.com/bahmutov/d3-panel/issues"
