@@ -15,6 +15,3 @@ window.addEventListener('message', function(event) {
   port.postMessage(event.data);
 }, false);
 
-document.d3Panel = function d3Panel() {
-  console.log('d3Panel called');
-};
