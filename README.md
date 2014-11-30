@@ -16,6 +16,18 @@ of numbers in a variable, you can plot a bar chart.
 You can send data to the d3-panel using `window.postMessage(data, '*');` command or by running
 a code snippet [d3-panel-api][d3-panel code snippet]. Read how to use code snippets [here][code snippets].
 
+## Plot types and commands
+
+### Plot bar chart of numbers
+
+`d3panel.bar(n1, n2, ...)` or `d3panel.bar({ foo: 20, bar: 30, ... })` plots horizontal bar chart.
+
+![bar chart][images/bar-chart.png]
+
+### Clear the panel
+
+`d3panel.clear()` removes all charts from the d3-panel.
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2014
