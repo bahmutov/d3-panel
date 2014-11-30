@@ -22,7 +22,7 @@ a code snippet [d3-panel-api][d3-panel code snippet]. Read how to use code snipp
 
 `d3panel.bar(n1, n2, ...)` or `d3panel.bar({ foo: 20, bar: 30, ... })` plots horizontal bar chart.
 
-![bar chart][images/bar-chart.png]
+![bar chart](images/bar-chart.png)
 
 ### Clear the panel
 
