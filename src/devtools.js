@@ -60,8 +60,13 @@ function d3Panel(panel) {
     name: 'd3-panel'
   });
 
-  port.onMessage.addListener(function (message) {
-    console.log('devtools got message from background page', message);
+  function hasBeenShown() {
+    return Boolean(d3panel);
+  }
+
+  var buffer = [];
+
+  function drawMessage(message) {
     if (typeof message === 'string') {
       if (message === 'clear') {
         clear();
@@ -73,16 +78,29 @@ function d3Panel(panel) {
     } else if (isObjectOfNumbers(message)) {
       appendObjectBarChart(message);
     }
+  }
+
+  port.onMessage.addListener(function (message) {
+    console.log('devtools got message from background page', message);
+    if (!hasBeenShown()) {
+      buffer.push(message);
+    } else {
+      drawMessage(message);
+    }
   });
 
-  // TODO: buffer messages received before the window is shown
-  panel.onShown.addListener(function once(panelWindow) {
-    panel.onShown.removeListener(once);
+  panel.onShown.addListener(function initD3Panel(panelWindow) {
+    console.log('showing d3-panel');
+    // panel.onShown.removeListener(once);
     d3 = panelWindow.d3;
     d3panel = d3
       .select(panelWindow.document.body)
       .select('#d3Panel');
     // TODO: assert window and document
+    if (buffer.length) {
+      buffer.forEach(drawMessage);
+      buffer = [];
+    }
   });
 }
 chrome.devtools.panels.create('d3-panel', 'icons/panel-icon.png',
